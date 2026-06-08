@@ -1,9 +1,15 @@
 import mongoose from 'mongoose';
 
-const MONGODB_URI = process.env.MONGODB_URI;
+const MONGODB_URI =
+  process.env.MONGODB_URI ||
+  process.env.DATABASE_URL ||
+  process.env.MONGO_URI ||
+  process.env.RAILWAY_MONGODB_URI;
 
 if (!MONGODB_URI) {
-  throw new Error('MONGODB_URI must be set in server/.env');
+  throw new Error(
+    'MONGODB_URI must be set. Add it to server/.env for local development or set MONGODB_URI (or DATABASE_URL) in your deployment environment.'
+  );
 }
 
 let cached = globalThis.__mongooseCache;
