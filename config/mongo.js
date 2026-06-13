@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const MONGODB_URI =
+const MONGODB_URI =mongodb+srv://bijnoorwellness_db_user:<db_password>@bijnoor-wellness.gserpb1.mongodb.net/?appName=Bijnoor-Wellness
   process.env.MONGODB_URI ||
   process.env.DATABASE_URL ||
   process.env.MONGO_URI ||
